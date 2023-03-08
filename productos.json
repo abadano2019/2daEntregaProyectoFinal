@@ -1,0 +1,541 @@
+[
+    {
+        "id": 1,
+        "thumbnail": [
+            "./primera.jpg"
+        ],
+        "status": false,
+        "code": "ABC30",
+        "stock": 10,
+        "category": "cocina",
+        "title": "obl.p MOD",
+        "description": "o.MOD.pru",
+        "price": 1
+    },
+    {
+        "id": 2,
+        "title": "prueba 2",
+        "description": "descripcion prueba 2",
+        "price": 1500,
+        "thumbnail": [],
+        "code": "ABC2",
+        "stock": 50,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 3,
+        "title": "prueba 3",
+        "description": "descripcion prueba 3",
+        "price": 1700,
+        "thumbnail": [],
+        "code": "ABC3",
+        "stock": 50,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 4,
+        "title": "prueba 4",
+        "description": "descripcion prueba 4",
+        "price": 1200,
+        "thumbnail": [],
+        "code": "ABC4",
+        "stock": 50,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 5,
+        "title": "prueba 5",
+        "description": "descripcion prueba 5",
+        "price": 1250,
+        "thumbnail": [],
+        "code": "ABC5",
+        "stock": 50,
+        "status": false,
+        "category": "cocina"
+    },
+    {
+        "id": 6,
+        "title": "prueba 6",
+        "description": "descripcion prueba 6",
+        "price": 1300,
+        "thumbnail": [],
+        "code": "ABC6",
+        "stock": 50,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 7,
+        "title": "prueba 7",
+        "description": "descripcion prueba 7",
+        "price": 1300,
+        "thumbnail": [],
+        "code": "ABC7",
+        "stock": 50,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 8,
+        "title": "prueba 8",
+        "description": "descripcion prueba 8",
+        "price": 1300,
+        "thumbnail": [],
+        "code": "ABC8",
+        "stock": 50,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 9,
+        "title": "prueba 9",
+        "description": "descripcion prueba 9",
+        "price": 1300,
+        "thumbnail": [],
+        "code": "ABC9",
+        "stock": 50,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 12,
+        "title": "New12",
+        "description": "descripcion prueba 12",
+        "price": 1500,
+        "thumbnail": [],
+        "code": "ABC12",
+        "stock": 50,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 13,
+        "title": "New13",
+        "description": "descripcion prueba 13",
+        "price": 1500,
+        "thumbnail": [],
+        "code": "ABC13",
+        "stock": 50,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 15,
+        "title": 12,
+        "description": "description nueva tanda",
+        "price": 555,
+        "code": "ABC100",
+        "stock": 100,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 16,
+        "title": "Nueva tanda",
+        "description": "description nueva tanda",
+        "price": 1450,
+        "code": "ABC101",
+        "stock": "2W",
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 17,
+        "title": "Nueva tanda",
+        "description": "description nueva tanda",
+        "price": 1450,
+        "code": "ABC108",
+        "stock": "2W",
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 18,
+        "title": "Nueva tanda",
+        "description": "description nueva tanda",
+        "price": 1450,
+        "code": "ABC109",
+        "stock": 20,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 19,
+        "title": "Nueva tanda",
+        "description": "description nueva tanda",
+        "price": 1450,
+        "code": "ABC110",
+        "stock": 20,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 20,
+        "title": "Nueva tanda",
+        "description": "description nueva tanda",
+        "price": 1450,
+        "code": "ABC111",
+        "stock": 20,
+        "status": true,
+        "category": "cocina"
+    },
+    {
+        "id": 21,
+        "title": "23232",
+        "description": "description nueva tanda",
+        "price": 1450,
+        "code": "ABC181",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 22,
+        "title": "23232",
+        "description": "description nueva tanda",
+        "price": 1450,
+        "code": "ABC182",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 23,
+        "title": "23232",
+        "description": "description nueva tanda",
+        "price": 1450,
+        "code": "ABC183",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 24,
+        "title": "23232",
+        "description": "description nueva tanda",
+        "price": 1450,
+        "thumbnail": "",
+        "code": "ABC184",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 25,
+        "title": "23232",
+        "description": 2,
+        "price": 1450,
+        "thumbnail": "",
+        "code": "ABC187",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 26,
+        "title": "23232",
+        "description": 2,
+        "price": 44,
+        "thumbnail": "",
+        "code": "ABC188",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 27,
+        "title": "23232",
+        "description": 2,
+        "price": 44,
+        "thumbnail": "",
+        "code": "ABC189",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 28,
+        "title": "2",
+        "description": 2,
+        "price": 44,
+        "thumbnail": "",
+        "code": "ABC190",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 29,
+        "title": "2@",
+        "description": 2,
+        "price": 44,
+        "thumbnail": "",
+        "code": "ABC191",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 30,
+        "title": "2@",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": "",
+        "code": "ABC193",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 31,
+        "title": "2@",
+        "description": "obligatorio",
+        "price": 44,
+        "code": "ABC194",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 32,
+        "title": "2@",
+        "description": "obligatorio",
+        "price": 44,
+        "code": "ABC195",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 33,
+        "title": "2@",
+        "description": "obligatorio",
+        "price": 44,
+        "code": "ABC196",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 34,
+        "title": "2@",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC197",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 36,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC200",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 37,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC201",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 39,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC203",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 43,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC207",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 44,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC208",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 45,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC209",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 46,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC210",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 47,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC211",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 48,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC212",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 49,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC213",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 52,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC216",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 53,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC217",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 54,
+        "title": "Prueba Socket",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [],
+        "code": "ABC278",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 55,
+        "title": "prueba Monogo",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [
+            "./adfd.jpg",
+            "./dff/dfdf.jpg"
+        ],
+        "code": "ABC283",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 56,
+        "title": "prueba Monogo",
+        "description": "obligatorio",
+        "price": 44,
+        "thumbnail": [
+            "./adfd.jpg",
+            "./dff/dfdf.jpg"
+        ],
+        "code": "ABC293",
+        "stock": 20,
+        "status": true,
+        "category": "cocinaA!"
+    },
+    {
+        "id": 57,
+        "title": "obl.p MOD",
+        "description": "o.MOD.pru",
+        "price": 1,
+        "thumbnail": [
+            "./primera.jpg"
+        ],
+        "code": "ABC1",
+        "stock": 10,
+        "status": false,
+        "category": "cocina"
+    },
+    {
+        "id": 58,
+        "title": "obl.p MOD",
+        "description": "o.MOD.pru",
+        "price": 1,
+        "thumbnail": [
+            "./primera.jpg"
+        ],
+        "code": "ABC2001",
+        "stock": 10,
+        "status": false,
+        "category": "cocina"
+    },
+    {
+        "id": 59,
+        "title": "webS",
+        "description": "WebS-pru",
+        "price": "20",
+        "thumbnail": [],
+        "code": "WS1234",
+        "stock": "1000",
+        "status": "true",
+        "category": "cocina"
+    }
+]

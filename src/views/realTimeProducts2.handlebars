@@ -1,0 +1,72 @@
+<form id="formulario" >
+    Title: <input type="text" name="nombre" id="title"><br/><br/>
+    Description: <input type="text" name="descripcion" id="description"><br/><br/>
+    Price: <input type="number" name="price" id="price"><br/><br/>
+    Code: <input type= "text" name="code" id="code"><br/><br/>
+    Stock: <input type="number" name="stock" id="stock"><br/><br/>
+    Status: <input type="boolean" name="status" id="status"><br/><br/>
+    Category: <input type="text" name="category" id="category"><br/><br/>
+    <input type="submit" value="ENVIAR">
+</form>
+
+<p id="productoIngresado"></p>
+
+<h3>Lista de productos ingresados:</h3>
+
+{{#each products}}
+
+<p> ID: {{id}} - TITLE: {{title}} - DESCRIPTION: {{description}} - PRICE: {{price}} - ESTADO: {{status}} - CODIGO: {{code}} - STOCK:{{stock}}</p>
+
+{{/each}}
+
+<script src="/socket.io/socket.io.js"></script>
+<script>
+    const socketClient = io()
+    
+    socketClient.on("productoAgregado",(products)=>{
+        try{
+            console.log("Se Agregó un producto")
+            //console.log(products.products)
+            window.location.reload()
+        }catch(error){
+            console.log(error)
+        }
+    })
+
+    socketClient.on("productoEliminado",(products)=>{
+        try{
+            console.log("Se elimino un producto")
+            //console.log(products.products)
+            window.location.reload()
+        }catch(error){
+            console.log(error)
+        }
+    })
+
+    
+    const formulario = document.getElementById('formulario')
+    const inputTitle = document.getElementById('title')
+    const inputDescription = document.getElementById('description')
+    const inputPrice = document.getElementById('price')
+    const inputCode = document.getElementById('code')
+    const inputStock = document.getElementById('stock')
+    const inputStatus = document.getElementById('status')
+    const inputCategory = document.getElementById('category')
+
+    formulario.onsubmit = (e)=>{
+        e.preventDefault()
+        const title = inputTitle.value
+        const description = inputDescription.value
+        const price = inputPrice.value
+        const code = inputCode.value
+        const stock = inputStock.value
+        const status = inputStatus.value
+        const category = inputCategory.value
+                
+        socketClient.emit('addProduct',{title, description, price, code,stock,status,category})
+    
+        
+    }
+    
+
+</script>
