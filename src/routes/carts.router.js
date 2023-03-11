@@ -95,7 +95,7 @@ router.post('/:cid/products/:pid', async(req,res) => {
 })
 
 // Borrado de un carrito
-router.delete('/:idCart', async(req,res) => {
+/*router.delete('/:idCart', async(req,res) => {
 
     const {idCart} = req.params
         console.log(idCart)
@@ -106,7 +106,7 @@ router.delete('/:idCart', async(req,res) => {
         
         if(cart){
             res.json({mesage:'Carrito encontrado',cart})
-            cartsManager.deleteProduct(idCart)
+            cartsManager.deleteProductCart(idCart)
         } else {
             res.json({mesage:'Carrito no encontrado'})
         }
@@ -115,7 +115,7 @@ router.delete('/:idCart', async(req,res) => {
         console.log(error)
     }
     
-})
+})*/
 
 // Borrado de un producto dado por parametro del carrito de compra
 router.delete('/:cid/products/:pid', async(req,res) => {
@@ -131,8 +131,9 @@ router.delete('/:cid/products/:pid', async(req,res) => {
         const cart = await cartsManager.getCartById(cid)
         
         if(cart){
-            res.json({mesage:'Carrito encontrado',cart})
             cartsManager.deleteProductCart(cid,pid)
+            res.json({mesage:'Carrito encontrado, producto borrado',cart})
+            
         } else {
             res.json({mesage:'Carrito no encontrado'})
         }
@@ -152,8 +153,9 @@ router.delete('/:cid', async(req,res) => {
         const cart = await cartsManager.getCartById(cid)
         
         if(cart){
-            res.json({mesage:'Carrito encontrado',cart})
             cartsManager.deleteProductsCart(cid)
+            res.json({mesage:'Carrito encontrado, se borraron todos los productos',cart})
+            
         } else {
             res.json({mesage:'Carrito no encontrado'})
         }

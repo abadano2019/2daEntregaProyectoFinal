@@ -14,9 +14,8 @@ export default class ProductsManager {
     }
 
 
-    async getProducts(limit, page, query, sort){
+    /*async getProducts(limit, page, query, sort){
       try{
-
         let typeQuery = ""
         let dataQuery = ""
         let dataSort= ""
@@ -54,6 +53,69 @@ export default class ProductsManager {
               nextLink: productsDB.hasNextPage ? `http://localhost:3000/api/products/paginate?page=${productsDB.nextPage}&limit=${limit}${dataSort}${dataQuery}` : null,
           }
           return queryResponse
+          
+      }catch
+      (error){
+          const queryErrorResponse = {
+            status: "error",
+            descriptionError: error,
+          }
+          console.log('Error: GetProducts', error)
+          return queryErrorResponse
+      }
+  }*/
+
+  async getProducts(limit, page, query, sort){
+      try{
+
+        console.log(query)
+        let typeQuery = ""
+        let dataQuery = ""
+        let dataSort= ""
+        let querySelector=""
+        if (query?.stock) {
+          typeQuery = 'stock'
+          dataQuery = `&stock=${query.stock}}`
+          querySelector = {stock: {$gt: query.stock} }
+        }
+        
+        if(query?.category){
+          typeQuery = 'category' 
+          dataQuery = `&category=${query.category}`
+          querySelector = {category: query.category }    
+        }
+
+        console.log(querySelector)
+
+        if (sort){
+          dataSort = `&sort=${sort}`    
+        }
+
+        const options = {
+          page: page,
+          limit: limit,
+          lean:true,
+          sort: sort ? {precio: sort} : "",
+        };
+
+        
+        //const queryParams = data
+
+        const productsDB = await productsModel.paginate(querySelector,options)
+          
+        const queryResponse = {
+              status: 'success',
+              payload: productsDB.docs,
+              totalPages: productsDB.totalPages,
+              prevPage: productsDB.prevPage,
+              nextPage: productsDB.nextPage,
+              page: productsDB.page,
+              hasPrevPage: productsDB.hasPrevPage,
+              hasNextPage: productsDB.hasNextPage,
+              prevLink: productsDB.hasPrevPage ? `http://localhost:3000/api/products/paginate?page=${productsDB.prevPage}&limit=${limit}${dataSort}${dataQuery}` : null,
+              nextLink: productsDB.hasNextPage ? `http://localhost:3000/api/products/paginate?page=${productsDB.nextPage}&limit=${limit}${dataSort}${dataQuery}` : null,
+        }
+        return queryResponse
           
       }catch
       (error){

@@ -4,8 +4,7 @@
 {{#each cart.cartProducts}}
 
 <!--<p> ID: {{id}} - TITLE: {{title}} - DESCRIPTION: {{description}} - PRICE: {{price}} - ESTADO: {{status}} - CODIGO: {{code}} - STOCK:{{stock}}</p>-->
-<p> ID: {{idProduct}} - Quantity: {{quantity}}</p>
-
+<p> ID: {{id._id}} - TITLE: {{id.title}} - DESCRIPTION: {{id.description}} - PRICE: {{id.price}} - ESTADO: {{id.status}} - CODIGO: {{id.code}} - STOCK:{{id.stock}} - CATEGORIA:{{id.category}} - CANTIDAD: {{quantity}}</p>
 
 {{/each}}
 

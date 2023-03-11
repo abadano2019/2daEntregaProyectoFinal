@@ -1,11 +1,11 @@
 // Clase para generar instancias de los productos de los carritos
 
-export default class CartProduct {
-    idProduct
+export default class CartProducts {
+    id
     quantity
   
-    constructor(idProduct){
-      this.idProduct = idProduct
+    constructor(id){
+      this.id = id
       this.quantity = 1
       
     }

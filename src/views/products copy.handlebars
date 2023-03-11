@@ -14,31 +14,17 @@
 <button onclick="{{productsPaginate.hasPrevPage}} ? location.href='/views/products?page={{productsPaginate.prevPage}}' : location.href='/views/products'">Pag.anterior</button>
 
 <h3>Lista de productos ingresados:</h3>
-
+{{productsPaginate.hasPrevPage}}
+{{productsPaginate.prevPage}}
+{{productsPaginate.hasNextPage}}
+{{productsPaginate.nextPage}}
 <p id="dataRender"></p>
 
+{{#each productsPaginate.payload}}
 
-<div class = "container">
-    {{#each productsPaginate.payload}}
-        <div class = "card">
-            <div class = "title">
-                <h3> TITLE: {{title}}</h3>
-                <h3> Cod.: {{id}} </h3>
-            </div>
-            <div class = "detalle">
-                <p>PRICE: {{price}} </p>
-                <p>ESTADO: {{status}} </p>
-                <p>CODIGO: {{code}} </p>
-                <p>STOCK:{{stock}} </p>
-                <p>CATEGORIA:{{category}}</p>
-                <p>DESCRIPTION: {{description}}</p>
-            </div>
-            <form method="post" action="http://localhost:3000/api/carts/640a9dd878ce406fba185192/products/{{id}}"">
-                <button class = "btnAddCart">Add to Cart</button>
-            </form>
-        </div>
-    {{/each}}
-</div>
+<p> ID: {{id}} - TITLE: {{title}} - DESCRIPTION: {{description}} - PRICE: {{price}} - ESTADO: {{status}} - CODIGO: {{code}} - STOCK:{{stock}} - CATEGORIA:{{category}}</p>
+
+{{/each}}
 
 
 
