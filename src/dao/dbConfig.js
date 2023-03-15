@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-const URI = 'mongodb+srv://<usuario>:<contraseña>@cluster0.c3jlm8v.mongodb.net/ecommerce?retryWrites=true&w=majority'
+const URI = 'mongodb+srv://abadano05:coderhouse@cluster0.c3jlm8v.mongodb.net/ecommerce?retryWrites=true&w=majority'
 //mongoose.set('strictQuery', false)
 mongoose.connect(URI, (error)=>{
     if(error){

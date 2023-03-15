@@ -38,8 +38,20 @@ router.get('/chat',async(req,res) =>{
 
 // Vista para ser utilizada para visualizar los productos paginados
 router.get('/products',async(req,res) =>{
+
+        console.log(req.query)
         const {page=1} = req.query
-        const productsPaginate = await productsManager.getProducts(5, page)
+        const {user} = req.session
+        const {sessionID} = req.sessionID
+        const productsPag = await productsManager.getProducts(5, page)
+        console.log(productsPag)
+        //const { sessionID } = req.sessionID
+        console.log('sessionID',sessionID)
+        const productsPaginate = {
+            user: user,
+            productsPag: productsPag
+        }
+        //console.log(req)
        
         res.render('products',{ productsPaginate, layout: "products" })
 })
@@ -67,6 +79,26 @@ router.post('/upfile', upload.array('foto',2), function (req, res, next) {
       '<br><a href="/views/upfile">Subir más fotos</a></body></html>'
     res.send(pagina)
   })
+
+router.get('/login',async(req,res)=>{
+    res.render('login')
+})
+
+router.get('/registro',(req,res)=>{
+    res.render('registro')
+})
+
+router.get('/errorRegistro',(req,res)=>{
+    res.render('errorRegistro')
+})
+
+router.get('/errorLogin',(req,res)=>{
+    res.render('errorLogin')
+})
+
+router.get('/perfil',(req,res)=>{
+    res.render('perfil')
+})
 
 
 export default router

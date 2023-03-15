@@ -1,17 +1,9 @@
-<form id="formulario" >
-    Title: <input type="text" name="nombre" id="title"><br/><br/>
-    Description: <input type="text" name="descripcion" id="description"><br/><br/>
-    Price: <input type="number" name="price" id="price"><br/><br/>
-    Code: <input type= "text" name="code" id="code"><br/><br/>
-    Stock: <input type="number" name="stock" id="stock"><br/><br/>
-    Status: <input type="boolean" name="status" id="status"><br/><br/>
-    Category: <input type="text" name="category" id="category"><br/><br/>
-    <input type="submit" value="ENVIAR">
-</form>
 
+<button onclick="{{productsPaginate.productsPag.hasNextPage}} ? location.href='/views/products?page={{productsPaginate.productsPag.nextPage}}' : location.href='/views/products'">Pag.siguiente</button>
+<button onclick="{{productsPaginate.productsPag.hasPrevPage}} ? location.href='/views/products?page={{productsPaginate.productsPag.prevPage}}' : location.href='/views/products'">Pag.anterior</button>
+<button onclick="location.href='/users/logout'">LOGOUT</button>
 
-<button onclick="{{productsPaginate.hasNextPage}} ? location.href='/views/products?page={{productsPaginate.nextPage}}' : location.href='/views/products'">Pag.siguiente</button>
-<button onclick="{{productsPaginate.hasPrevPage}} ? location.href='/views/products?page={{productsPaginate.prevPage}}' : location.href='/views/products'">Pag.anterior</button>
+<h2>¡¡¡¡¡¡Bienvendio {{productsPaginate.user}}!!!!!!!!!!</h2>
 
 <h3>Lista de productos ingresados:</h3>
 
@@ -19,7 +11,7 @@
 
 
 <div class = "container">
-    {{#each productsPaginate.payload}}
+    {{#each productsPaginate.productsPag.payload}}
         <div class = "card">
             <div class = "title">
                 <h3> TITLE: {{title}}</h3>
@@ -45,7 +37,7 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
     const socketClient = io()
-
+    
     const dataRenderProducts = document.getElementById('dataRednder')
 
     socketClient.on("productoAgregado",(products)=>{
@@ -67,31 +59,6 @@
             console.log(error)
         }
     })
-
-    
-    const formulario = document.getElementById('formulario')
-    const inputTitle = document.getElementById('title')
-    const inputDescription = document.getElementById('description')
-    const inputPrice = document.getElementById('price')
-    const inputCode = document.getElementById('code')
-    const inputStock = document.getElementById('stock')
-    const inputStatus = document.getElementById('status')
-    const inputCategory = document.getElementById('category')
-
-    formulario.onsubmit = (e)=>{
-        e.preventDefault()
-        const title = inputTitle.value
-        const description = inputDescription.value
-        const price = inputPrice.value
-        const code = inputCode.value
-        const stock = inputStock.value
-        const status = inputStatus.value
-        const category = inputCategory.value
-                
-        socketClient.emit('addProduct',{title, description, price, code,stock,status,category})
-       
-    }
-
       
 
 </script>    

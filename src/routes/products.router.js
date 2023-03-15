@@ -37,6 +37,7 @@ router.get('/paginate', async(req,res) => {
         const {limit=10, page=1, sort, ...query} = req.query
         
         const products = await productsManager.getProducts(limit,page,query,sort)
+        
         res.json({message:"productos encontrado:", products})
 
     }
