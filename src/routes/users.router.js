@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import UsersManager from '../dao/mongoManager/UsersManager.js'
-//import passport from 'passport'
+import passport from 'passport'
 
 const router = Router()
 const usersManager = new UsersManager()
@@ -24,14 +24,14 @@ const usersManager = new UsersManager()
 })*/
 
 // registro sin passport
-router.post('/registro',async (req, res) => {
+/*router.post('/registro',async (req, res) => {
    const newUser = await usersManager.createUser(req.body)
    if (newUser) {
      res.redirect('/views/login')
    } else {
      res.redirect('/views/errorRegistro')
    }
-})
+})*/
 
 router.get('/users', (req,res) =>{
   res.redirect('/views')
@@ -40,13 +40,25 @@ router.get('/users', (req,res) =>{
 
 
 //registro con passport
-//router.post('/registro',
-  /*passport.authenticate('registro', {
+router.post('/registro',
+  passport.authenticate('registro', {
     failureRedirect: '/views/errorRegistro',
-    successRedirect: '/views/perfil',
+    successRedirect: '/views/products',
     passReqToCallback: true,
-  })*/
-//)
+  })
+)
+
+//registro con passport github
+router.get('/registroGithub', 
+  passport.authenticate('github', { scope: [ 'user:email' ] })
+)
+
+router.get('/github', 
+  passport.authenticate('github'),(req,res) =>{
+    req.session.email = req.user.email
+    res.redirect('/views/perfil')
+  }
+)
 
 router.post('/login', async (req, res) => {
   const { email, password } = req.body

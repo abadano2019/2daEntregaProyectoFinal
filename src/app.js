@@ -5,6 +5,7 @@
 // Servidor express
 
 import './dao/dbConfig.js'
+import './passport/passportStrategies.js'
 
 import FileStore from 'session-file-store'
 import MessagesManager from '../src/dao/mongoManager/messagesManager.js'
@@ -15,6 +16,7 @@ import cookieParser from 'cookie-parser'
 import express from 'express'
 import handlebars from 'express-handlebars'
 import mongoStore from 'connect-mongo'
+import passport from 'passport'
 import {productsManager} from '../src/routes/products.router.js'
 import productsRouters from '../src/routes/products.router.js'
 import session from 'express-session'
@@ -49,6 +51,12 @@ app.use('/api/products',productsRouters)
 app.use('/api/carts',cartsRouters)
 app.use('/views', viewsRouter)
 app.use('/users', usersRouter)
+
+// passport
+//inicializar passport
+app.use(passport.initialize())
+// passport va a guardar la informacion de session
+app.use(passport.session())
 
 // archivos estaticos
 app.use(express.static(__dirname + '/public'))

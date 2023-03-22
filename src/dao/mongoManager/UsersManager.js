@@ -7,10 +7,15 @@ export default class UsersManager {
     const { email, password } = user
     try {
       const existeUsuario = await userModel.find({ email })
+      let rolUser = 'usuario'
       console.log('existe', existeUsuario)
       if (existeUsuario.length === 0) {
+        console.log(email)
+        if(email === "adminCoder@coder.com"){
+          rolUser = "admin"
+        }
         const hashNewPassword = await hashPassword(password)
-        const newUser = { ...user, password: hashNewPassword }
+        const newUser = { ...user, password: hashNewPassword, rol: rolUser }
         await userModel.create(newUser)
         return newUser
       } else {
