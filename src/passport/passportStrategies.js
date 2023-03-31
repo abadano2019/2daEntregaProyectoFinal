@@ -1,3 +1,5 @@
+import { ExtractJwt, Strategy as jwtStrategy } from 'passport-jwt'
+
 import {Strategy as GithubStrategy} from 'passport-github2'
 import {Strategy as LocalStrategy} from 'passport-local'
 import { hashPassword } from '../utils.js'
@@ -56,6 +58,41 @@ passport.use(
         }
       }
     )
+)
+
+///////////////////////////////////////////////////////////////////////////
+// jwt Strategy
+passport.use(
+  'jwt',
+  new jwtStrategy(
+    {
+      jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+      secretOrKey: 'secretJWT',
+    },
+    async (jwt_payload, done) => {
+      done(null, jwt_payload.user)
+    }
+  )
+)
+
+// jwt Strategy con cookies
+
+const cookieExtractor = (req)=>{
+  const token = req.cookies.token
+  return token
+}
+
+passport.use(
+  'jwtCookies',
+  new jwtStrategy(
+    {
+      jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor]),
+      secretOrKey: 'secretJWT',
+    },
+    async (jwt_payload, done) => {
+      done(null, jwt_payload.user)
+    }
+  )
 )
 
 passport.serializeUser((user, done) => {

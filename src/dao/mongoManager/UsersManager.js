@@ -7,15 +7,15 @@ export default class UsersManager {
     const { email, password } = user
     try {
       const existeUsuario = await userModel.find({ email })
-      let rolUser = 'usuario'
+      let roleUser = 'usuario'
       console.log('existe', existeUsuario)
       if (existeUsuario.length === 0) {
         console.log(email)
         if(email === "adminCoder@coder.com"){
-          rolUser = "admin"
+          roleUser = "admin"
         }
         const hashNewPassword = await hashPassword(password)
-        const newUser = { ...user, password: hashNewPassword, rol: rolUser }
+        const newUser = { ...user, password: hashNewPassword, role: roleUser }
         await userModel.create(newUser)
         return newUser
       } else {
@@ -31,7 +31,10 @@ export default class UsersManager {
 
   async loginUser(user) {
     const { email, password } = user
+    console.log("pass", password)
+    console.log("email", email)
     const usuario = await userModel.findOne({ email })
+
     if (usuario) {
       const isPassword = await comparePasswords(password, usuario.password)
       if (isPassword) {

@@ -1,0 +1,59 @@
+<h1>JWT</h1>
+<form id="form">
+   Email: <input type="email" name="email" id="email">
+   Password: <input type="password" name="password" id="password">
+    <input type="submit" value="INGRESAR">
+</form>
+<button id="boton">PROBAR</button>
+<script>
+
+    const form = document.getElementById('form')
+    const inputEmail = document.getElementById('email')
+    const inputPassword = document.getElementById('password')
+    const boton = document.getElementById('boton')
+
+
+    form.onsubmit = (e) => {
+    e.preventDefault()
+    fetch('http://localhost:3000/jwt/login', {
+        method: 'POST',
+        body: JSON.stringify({
+        email: inputEmail.value,
+        password: inputPassword.value,
+        }),
+        headers: {
+        'Content-Type': 'application/json',
+        },
+    })
+        .then((response) => response.json())
+        .then((response) => {
+            //localStorage.setItem('token',response.token)
+            console.log('todo bien');
+            console.log(document.cookie);
+        })
+    }
+
+    // localstorage
+    // boton.onclick = ()=>{
+    //     fetch('http://localhost:8080/jwt/login', {
+    //     method: 'GET',
+    //     headers: {
+    //       'Content-Type': 'application/json',
+    //       'Authorization': `Bearer ${localStorage.getItem('token')}`
+    //     },
+    //   })
+    // }
+
+    //cookies
+    boton.onclick = ()=>{
+        fetch('http://localhost:3000/jwt/login', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json'
+        },
+    })
+    }
+
+
+
+</script>

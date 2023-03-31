@@ -1,9 +1,3 @@
-// Desafio entregable Nro 5, Programación Backend
-// Tema: WebSocket
-// Titular: Ariel Badano
-// CoderHouse
-// Servidor express
-
 import './dao/dbConfig.js'
 import './passport/passportStrategies.js'
 
@@ -15,6 +9,7 @@ import cartsRouters from './routes/carts.router.js'
 import cookieParser from 'cookie-parser'
 import express from 'express'
 import handlebars from 'express-handlebars'
+import jwtRouter from './routes/jwt.router.js'
 import mongoStore from 'connect-mongo'
 import passport from 'passport'
 import {productsManager} from '../src/routes/products.router.js'
@@ -51,6 +46,7 @@ app.use('/api/products',productsRouters)
 app.use('/api/carts',cartsRouters)
 app.use('/views', viewsRouter)
 app.use('/users', usersRouter)
+app.use('/jwt',jwtRouter)
 
 // passport
 //inicializar passport

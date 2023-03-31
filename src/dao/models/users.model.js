@@ -23,11 +23,20 @@ const usersSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  rol:{
+  cart: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'Carts',
+  },
+  role:{
     type: String,
     required: true,
-    default: "usuario"
+    default: "user"
   }
+})
+
+usersSchema.pre("findOne", function(next){
+  this.populate("cart");
+  next();
 })
 
 export const userModel = mongoose.model('Users',usersSchema)

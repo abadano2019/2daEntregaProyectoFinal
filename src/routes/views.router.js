@@ -100,5 +100,9 @@ router.get('/perfil',(req,res)=>{
     res.render('perfil')
 })
 
+router.get('/jwtFront', (req, res) => {
+    res.render('jwt')
+  })
+
 
 export default router
