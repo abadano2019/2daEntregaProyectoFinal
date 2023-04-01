@@ -4,13 +4,18 @@
    Password: <input type="password" name="password" id="password">
     <input type="submit" value="INGRESAR">
 </form>
-<button id="boton">PROBAR</button>
+</br> <h1>VALIDACION DE USUARIO BACKEND</h1> </br>
+<button id="boton">VALIDAR</button>
+
+</br> <h1>INGRESAR AL SISTEMA</h1> </br>
+<button id="botonLogin">LOGIN</button>
 <script>
 
     const form = document.getElementById('form')
     const inputEmail = document.getElementById('email')
     const inputPassword = document.getElementById('password')
     const boton = document.getElementById('boton')
+    const botonLogin = document.getElementById('botonLogin')
 
 
     form.onsubmit = (e) => {
@@ -18,8 +23,8 @@
     fetch('http://localhost:3000/jwt/login', {
         method: 'POST',
         body: JSON.stringify({
-        email: inputEmail.value,
-        password: inputPassword.value,
+            email: inputEmail.value,
+            password: inputPassword.value,
         }),
         headers: {
         'Content-Type': 'application/json',
@@ -28,6 +33,8 @@
         .then((response) => response.json())
         .then((response) => {
             //localStorage.setItem('token',response.token)
+            console.log(response)
+            //cookie.setItem('token',response.token)
             console.log('todo bien');
             console.log(document.cookie);
         })
@@ -45,8 +52,19 @@
     // }
 
     //cookies
-    boton.onclick = ()=>{
+    /*boton.onclick = ()=>{
         fetch('http://localhost:3000/jwt/login', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json'
+        'Authorization': `Bearer ${cookie.getItem('token')}`
+        },
+    })
+    }*/
+
+    //loginJWTCookirdPassport
+    boton.onclick = ()=>{
+        fetch('http://localhost:3000/jwt/loginJWTCookirdPassport', {
         method: 'GET',
         headers: {
         'Content-Type': 'application/json'
@@ -54,6 +72,16 @@
     })
     }
 
+    //loginJWTCookirdPassport
+    botonLogin.onclick = ()=>{
+        console.log("hice click en el boton")
+        fetch('http://localhost:3000/jwt/loginJWTCookirdPassportLogin', {
+        method: 'GET',
+        headers: {
+        'Content-Type': 'application/json'
+       },
+    })
+    }
 
 
 </script>

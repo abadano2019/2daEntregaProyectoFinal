@@ -16,7 +16,7 @@ passport.use(
       },
       async (req, email, password, done) => {
         const user = await userModel.findOne({email})
-        let rolUser = 'usuario'
+        let rolUser = 'user'
         if (user) {
           return done(null, false)
         }
@@ -42,12 +42,17 @@ passport.use(
       async (accessToken, refreshToken, profile, done) => {
         
         const user = await userModel.findOne({email: profile._json.email})
+        let role = "user"
+        if (profile._json.email === "adminCoder@coder.com"){
+          role = "admin"
+        }
         if (!user) {
             const newUser = {
                 first_name: profile._json.name.split(' ')[0],
                 last_name: profile._json.name.split(' ')[1] || ' ',
                 email: profile._json.email,
                 password:"github",
+                role: role,
             }
             const newuserDB = await userModel.create(newUser)
             done(null,newuserDB)

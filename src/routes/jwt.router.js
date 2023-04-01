@@ -39,6 +39,20 @@ router.post('/login', async (req, res) => {
   router.get('/loginJWTPassport', passport.authenticate('jwt',{session:false}), (req, res) => {
     res.send('JWT PASSPORT')
   })
+
+  router.get('/loginJWTCookirdPassport', passport.authenticate('jwtCookies',{session:false}), (req, res) => {
+    console.log(req.user)
+    res.send("JWT cookines PASSPORT")
+  })
+
+  router.get('/loginJWTCookirdPassportLogin', passport.authenticate('jwtCookies',{session:false}), (req, res) => {
+    //console.log(req.user)
+    //const email = req.user.email
+    //console.log(email)
+    //res.redirect(`/views/productsCookies?email=${email}`)
+    res.redirect(`/views/productsCookies/`)
+    //res.send('JWT cookines PASSPORT')
+  })
   
   
 export default router

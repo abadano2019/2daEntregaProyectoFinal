@@ -56,6 +56,33 @@ router.get('/products',async(req,res) =>{
         res.render('products',{ productsPaginate, layout: "products" })
 })
 
+
+// Vista para ser utilizada para visualizar los productos paginados
+router.get('/productsCookies',async(req,res) =>{
+
+    console.log(req.query)
+    const {page=1} = req.query
+    const {user} = req.session
+    //const {email} = req.query
+    //console.log("email user", email)
+    const {sessionID} = req.sessionID
+    const productsPag = await productsManager.getProducts(5, page)
+    console.log(productsPag)
+    //const { sessionID } = req.sessionID
+    //console.log('sessionID',sessionID)
+    
+    const productsPaginate = {
+        user: user,
+        //email: email,
+        productsPag: productsPag
+    }
+    //console.log(req)
+    
+    res.render('products',{ productsPaginate, layout: "products" })
+    console.log("hice el render")
+})
+
+
 // Vista para ser utilizada para visualizar los productos de un carrito dado
 router.get('/carts/:cid',async(req,res) =>{
     
