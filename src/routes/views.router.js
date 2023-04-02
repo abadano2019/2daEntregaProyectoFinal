@@ -1,5 +1,6 @@
 import {Router} from 'express'
 import {cartsManager} from '../routes/carts.router.js'
+import cookieParser from 'cookie-parser'
 import {productsManager} from '../routes/products.router.js'
 import { upload } from '../middlewares/multer.js'
 
@@ -63,8 +64,8 @@ router.get('/productsCookies',async(req,res) =>{
     console.log(req.query)
     const {page=1} = req.query
     const {user} = req.session
-    //const {email} = req.query
-    //console.log("email user", email)
+   // const {user} = req.user
+    //console.log("user JWT", user)
     const {sessionID} = req.sessionID
     const productsPag = await productsManager.getProducts(5, page)
     console.log(productsPag)

@@ -7,8 +7,8 @@
 </br> <h1>VALIDACION DE USUARIO BACKEND</h1> </br>
 <button id="boton">VALIDAR</button>
 
-</br> <h1>INGRESAR AL SISTEMA</h1> </br>
-<button id="botonLogin">LOGIN</button>
+</br> <h1>VER PRODUCTOS</h1> </br>
+<button id="botonLogin">VER</button>
 <script>
 
     const form = document.getElementById('form')
@@ -64,7 +64,7 @@
 
     //loginJWTCookirdPassport
     boton.onclick = ()=>{
-        fetch('http://localhost:3000/jwt/loginJWTCookirdPassport', {
+        fetch('http://localhost:3000/jwt/loginJWTCookiesPassport', {
         method: 'GET',
         headers: {
         'Content-Type': 'application/json'
@@ -75,7 +75,7 @@
     //loginJWTCookirdPassport
     botonLogin.onclick = ()=>{
         console.log("hice click en el boton")
-        fetch('http://localhost:3000/jwt/loginJWTCookirdPassportLogin', {
+        fetch('http://localhost:3000/jwt/loginJWTCookiesPassportProductos', {
         method: 'GET',
         headers: {
         'Content-Type': 'application/json'

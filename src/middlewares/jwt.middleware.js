@@ -9,6 +9,7 @@ export function jwtValidation(req, res, next) {
     req.user = verifiedUser.user
     next()
   } else {
+    console.log("error en autenticación de JWT")
     res.json({ message: 'Authentication error' })
   }
 }
