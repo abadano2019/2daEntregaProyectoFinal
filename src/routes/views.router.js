@@ -65,7 +65,7 @@ router.get('/productsCookies',async(req,res) =>{
     const {page=1} = req.query
     const {user} = req.session
    // const {user} = req.user
-    //console.log("user JWT", user)
+    console.log(req.cookie)
     const {sessionID} = req.sessionID
     const productsPag = await productsManager.getProducts(5, page)
     console.log(productsPag)
@@ -78,8 +78,8 @@ router.get('/productsCookies',async(req,res) =>{
         productsPag: productsPag
     }
     //console.log(req)
-    
-    res.render('products',{ productsPaginate, layout: "products" })
+    res.render('products')
+    //res.render('products',{ productsPaginate, layout: "products" })
     console.log("hice el render")
 })
 

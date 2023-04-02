@@ -88,7 +88,7 @@ const cookieExtractor = (req)=>{
 }
 
 passport.use(
-  'jwtCookies',
+  'current',
   new jwtStrategy(
     {
       jwtFromRequest: ExtractJwt.fromExtractors([cookieExtractor]),

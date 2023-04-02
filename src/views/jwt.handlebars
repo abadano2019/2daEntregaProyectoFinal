@@ -64,23 +64,37 @@
 
     //loginJWTCookirdPassport
     boton.onclick = ()=>{
-        fetch('http://localhost:3000/jwt/loginJWTCookiesPassport', {
+        try{
+        fetch('http://localhost:3000/jwt/current', {
         method: 'GET',
         headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        //'Authorization': `Bearer ${document.cookie}`
         },
     })
+        }
+        catch(error){
+            console.log(error)
+        }
     }
 
     //loginJWTCookirdPassport
     botonLogin.onclick = ()=>{
         console.log("hice click en el boton")
+        console.log("cookie",document.cookie)
+       
+        console.log("pase el punto")
+        try{
         fetch('http://localhost:3000/jwt/loginJWTCookiesPassportProductos', {
         method: 'GET',
         headers: {
-        'Content-Type': 'application/json'
-       },
+        'Content-Type': 'application/json',
+        //'Authorization': `Bearer ${document.cookie('token')}`
+       }
     })
+        }catch(error){
+            console.log(error)
+        }
     }
 
 

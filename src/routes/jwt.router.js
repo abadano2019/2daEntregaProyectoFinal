@@ -40,12 +40,12 @@ router.post('/login', async (req, res) => {
     res.send('JWT PASSPORT')
   })
 
-  router.get('/loginJWTCookiesPassport', passport.authenticate('jwtCookies',{session:false}), (req, res) => {
+  router.get('/current', passport.authenticate('current',{session:false}), (req, res) => {
     console.log(req.user)
-    res.send("JWT cookines PASSPORT")
+    res.send("USER JWT COOKIES PASSPORT")
   })
 
-  router.get('/loginJWTCookiesPassportProductos', passport.authenticate('jwtCookies',{session:false}), (req, res) => {
+  router.get('/loginJWTCookiesPassportProductos', passport.authenticate('current',{session:false}), (req, res) => {
     //console.log(req.user)
     //const email = req.user.email
     //console.log(email)
@@ -55,6 +55,10 @@ router.post('/login', async (req, res) => {
     res.redirect('/views/productsCookies')
     //res.send('JWT cookines PASSPORT')
   })
+
+
   
+
+
   
 export default router
