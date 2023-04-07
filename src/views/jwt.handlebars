@@ -8,7 +8,8 @@
 <button id="boton">VALIDAR</button>
 
 </br> <h1>VER PRODUCTOS</h1> </br>
-<button id="botonLogin">VER</button>
+<button id="botonLogin" onclick="location.href='/jwt/loginJWTCookiesPassportProductos'">VER</button>
+
 <script>
 
     const form = document.getElementById('form')
@@ -70,7 +71,7 @@
         headers: {
         'Content-Type': 'application/json',
         //'Authorization': `Bearer ${document.cookie}`
-        },
+        }
     })
         }
         catch(error){
@@ -79,23 +80,21 @@
     }
 
     //loginJWTCookirdPassport
-    botonLogin.onclick = ()=>{
+   /* botonLogin.onclick = ()=>{
         console.log("hice click en el boton")
-        console.log("cookie",document.cookie)
-       
-        console.log("pase el punto")
         try{
         fetch('http://localhost:3000/jwt/loginJWTCookiesPassportProductos', {
-        method: 'GET',
-        headers: {
-        'Content-Type': 'application/json',
-        //'Authorization': `Bearer ${document.cookie('token')}`
-       }
-    })
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+                //'Authorization': `Bearer ${document.cookie('token')}`
+            }
+        })
+        console.log("pase el punto")
         }catch(error){
             console.log(error)
         }
-    }
+    }*/
 
 
 </script>

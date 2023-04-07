@@ -1,6 +1,7 @@
 import './dao/dbConfig.js'
 import './passport/passportStrategies.js'
 
+import Cors from 'cors';
 import FileStore from 'session-file-store'
 import MessagesManager from '../src/dao/mongoManager/messagesManager.js'
 import { Server } from 'socket.io'
@@ -22,6 +23,9 @@ const PORT = 3000
 const app = express()
 const cookieKey = "signedCookieKey"
 //const fileStore = FileStore(session)
+
+app.use(Cors())
+
 app.use(cookieParser(cookieKey))
 /*app.use(session({
     secret:"secretCoder23",

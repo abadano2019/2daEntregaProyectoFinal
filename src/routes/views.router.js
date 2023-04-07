@@ -1,6 +1,7 @@
 import {Router} from 'express'
 import {cartsManager} from '../routes/carts.router.js'
 import cookieParser from 'cookie-parser'
+import passport from 'passport'
 import {productsManager} from '../routes/products.router.js'
 import { upload } from '../middlewares/multer.js'
 
@@ -43,6 +44,7 @@ router.get('/products',async(req,res) =>{
         console.log(req.query)
         const {page=1} = req.query
         const {user} = req.session
+        console.log("USUARIO", user)
         const {sessionID} = req.sessionID
         const productsPag = await productsManager.getProducts(5, page)
         console.log(productsPag)
@@ -59,27 +61,19 @@ router.get('/products',async(req,res) =>{
 
 
 // Vista para ser utilizada para visualizar los productos paginados
-router.get('/productsCookies',async(req,res) =>{
-
-    console.log(req.query)
+router.get('/productsCookies',passport.authenticate('current',{session:false}), async(req,res) =>{
+    
+    const user = req.user;
     const {page=1} = req.query
-    const {user} = req.session
-   // const {user} = req.user
-    console.log(req.cookie)
-    const {sessionID} = req.sessionID
     const productsPag = await productsManager.getProducts(5, page)
     console.log(productsPag)
-    //const { sessionID } = req.sessionID
-    //console.log('sessionID',sessionID)
-    
+        
     const productsPaginate = {
-        user: user,
-        //email: email,
+        user: user.first_name + " " + user.last_name,
         productsPag: productsPag
     }
-    //console.log(req)
-    res.render('products')
-    //res.render('products',{ productsPaginate, layout: "products" })
+    
+    res.render('productsJWT',{ productsPaginate, layout: "products" })
     console.log("hice el render")
 })
 
